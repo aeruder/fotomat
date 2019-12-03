@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -28,9 +27,7 @@ func TestMain(m *testing.M) {
 	os.Exit(r)
 }
 
-func init() {
-	// Initialize flags with default values, enable local serving.
-	flag.Parse()
+func lateInit() {
 	*localImageDirectory = "../../testdata/"
 	runtime.GOMAXPROCS(2)
 
